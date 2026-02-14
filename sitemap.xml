@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://sahilpahwa.dev/</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- About Section -->
+    <url>
+        <loc>https://sahilpahwa.dev/#about</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Expertise Section -->
+    <url>
+        <loc>https://sahilpahwa.dev/#expertise</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Skills Section -->
+    <url>
+        <loc>https://sahilpahwa.dev/#skills</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Projects Section -->
+    <url>
+        <loc>https://sahilpahwa.dev/#projects</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Experience Section -->
+    <url>
+        <loc>https://sahilpahwa.dev/#experience</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Gallery Section -->
+    <url>
+        <loc>https://sahilpahwa.dev/#gallery</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Certifications Section -->
+    <url>
+        <loc>https://sahilpahwa.dev/#certifications</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Contact Section -->
+    <url>
+        <loc>https://sahilpahwa.dev/#contact</loc>
+        <lastmod>2026-02-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Profile Image -->
+    <url>
+        <loc>https://sahilpahwa.dev/images/profile.jpg</loc>
+        <image:image>
+            <image:loc>https://sahilpahwa.dev/images/profile.jpg</image:loc>
+            <image:title>Sahil Pahwa - RPA &amp; Agentic AI Architect</image:title>
+            <image:caption>Senior RPA Architect at Cognizant, UiPath Expert, IIM Calcutta &amp; IIT Roorkee Alumnus</image:caption>
+        </image:image>
+    </url>
+    
+</urlset>

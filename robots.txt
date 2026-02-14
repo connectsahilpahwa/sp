@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://sahilpahwa.dev/sitemap.xml
+
+# Sahil Pahwa - RPA & Agentic AI Architect
+# Keywords: Sahil Pahwa, UiPath, RPA, Agentic AI, IIM Calcutta, IIT Roorkee
