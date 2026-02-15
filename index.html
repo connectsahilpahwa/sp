@@ -137,30 +137,31 @@
     
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --primary-light: #3b82f6;
-            --secondary: #0891b2;
-            --accent: #7c3aed;
-            --success: #059669;
-            --bg-light: #ffffff;
-            --bg-dark: #0a0e1a;
-            --bg-secondary-dark: #131825;
+            --primary: #0891b2;
+            --primary-dark: #0e7490;
+            --primary-light: #06b6d4;
+            --secondary: #8b5cf6;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --bg-light: #f8fafc;
+            --bg-dark: #0f172a;
+            --bg-secondary-dark: #1e293b;
             --text-light: #0f172a;
-            --text-dark: #f8fafc;
+            --text-dark: #f1f5f9;
             --text-muted-light: #64748b;
             --text-muted-dark: #94a3b8;
             --card-light: #ffffff;
-            --card-dark: #1a1f35;
+            --card-dark: #1e293b;
             --border-light: #e2e8f0;
-            --border-dark: #2d3548;
+            --border-dark: #334155;
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-            --gradient-secondary: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
-            --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            --gradient-primary: linear-gradient(135deg, #0891b2 0%, #8b5cf6 100%);
+            --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #f59e0b 100%);
+            --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+            --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
         }
 
         * {
@@ -319,13 +320,13 @@
             display: flex;
             align-items: center;
             padding: 6rem 2rem 2rem;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(124, 58, 237, 0.03) 100%);
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
             position: relative;
             overflow: hidden;
         }
 
         body.dark-mode .hero {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%);
         }
 
         .hero::before {
@@ -335,9 +336,21 @@
             right: -20%;
             width: 70%;
             height: 140%;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.15) 0%, transparent 70%);
             pointer-events: none;
             animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -20%;
+            width: 60%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+            animation: float 25s ease-in-out infinite reverse;
         }
 
         @keyframes float {
@@ -446,12 +459,12 @@
         .btn-primary {
             background: var(--gradient-primary);
             color: white;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 8px 25px rgba(8, 145, 178, 0.4);
         }
 
         .btn-secondary {
@@ -534,20 +547,48 @@
 
         .stat-item {
             padding: 1.25rem;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
             border-radius: 16px;
             border: 1px solid var(--border-light);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
         }
 
         body.dark-mode .stat-item {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
             border-color: var(--border-dark);
         }
 
         .stat-item:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
+        }
+
+        .stat-item:nth-child(1)::before {
+            background: var(--gradient-primary);
+        }
+
+        .stat-item:nth-child(2)::before {
+            background: var(--gradient-accent);
+        }
+
+        .stat-item:nth-child(3)::before {
+            background: var(--gradient-secondary);
+        }
+
+        .stat-item:nth-child(4)::before {
+            background: var(--gradient-warm);
         }
 
         .stat-number {
@@ -740,6 +781,18 @@
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        .expertise-card:nth-child(1)::before {
+            background: var(--gradient-primary);
+        }
+
+        .expertise-card:nth-child(2)::before {
+            background: var(--gradient-accent);
+        }
+
+        .expertise-card:nth-child(3)::before {
+            background: var(--gradient-secondary);
+        }
+
         .expertise-card::after {
             content: '';
             position: absolute;
@@ -752,6 +805,18 @@
             transition: opacity 0.4s ease;
             border-radius: 20px;
             z-index: 0;
+        }
+
+        .expertise-card:nth-child(1)::after {
+            background: var(--gradient-primary);
+        }
+
+        .expertise-card:nth-child(2)::after {
+            background: var(--gradient-accent);
+        }
+
+        .expertise-card:nth-child(3)::after {
+            background: var(--gradient-secondary);
         }
 
         .expertise-card:hover::before {
@@ -943,6 +1008,18 @@
             overflow: hidden;
         }
 
+        .project-card:nth-child(1) .project-header {
+            background: var(--gradient-primary);
+        }
+
+        .project-card:nth-child(2) .project-header {
+            background: var(--gradient-accent);
+        }
+
+        .project-card:nth-child(3) .project-header {
+            background: var(--gradient-secondary);
+        }
+
         .project-header::before {
             content: '';
             position: absolute;
@@ -1002,19 +1079,20 @@
 
         .tag {
             padding: 0.5rem 1rem;
-            background: rgba(37, 99, 235, 0.08);
+            background: rgba(8, 145, 178, 0.1);
             color: var(--primary);
             border-radius: 20px;
             font-size: 0.8125rem;
             font-weight: 600;
-            border: 1px solid rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(8, 145, 178, 0.2);
             transition: all 0.3s ease;
         }
 
         .tag:hover {
-            background: var(--primary);
+            background: var(--gradient-primary);
             color: white;
             transform: translateY(-2px);
+            border-color: transparent;
         }
 
         .impact-metrics {
@@ -1317,7 +1395,22 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             position: relative;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
+        }
+
+        .social-link:nth-child(2) {
+            background: var(--gradient-accent);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .social-link:nth-child(3) {
+            background: var(--gradient-secondary);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .social-link:nth-child(4) {
+            background: var(--gradient-warm);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
         }
 
         .social-link::before {
@@ -1337,7 +1430,19 @@
 
         .social-link:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 12px 30px rgba(8, 145, 178, 0.4);
+        }
+
+        .social-link:nth-child(2):hover {
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .social-link:nth-child(3):hover {
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.4);
+        }
+
+        .social-link:nth-child(4):hover {
+            box-shadow: 0 12px 30px rgba(239, 68, 68, 0.4);
         }
 
         footer p {
@@ -1524,7 +1629,7 @@
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
             display: inline-flex;
             align-items: center;
             gap: 0.625rem;
@@ -1532,7 +1637,7 @@
 
         .show-more-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 8px 25px rgba(8, 145, 178, 0.4);
         }
 
         .show-more-btn.hidden {
@@ -1813,10 +1918,9 @@
         <div class="hero-container">
             <div class="hero-content fade-in-up">
                 <h1>Hi, I'm <span class="gradient-text">Sahil Pahwa</span></h1>
-                <p class="subtitle">Senior RPA & Agentic AI Architect</p>
+                <p class="subtitle">Senior RPA & Agentic AI Architect/ Manager</p>
                 <p>
-                    Transforming enterprises through intelligent automation. 12+ years architecting scalable RPA solutions with UiPath, 
-                    integrating AI (LLM, RAG, CrewAI), and delivering $5M+ in cost savings across Fortune 500 companies.
+                    IIM- C Alumni | IIT R Alumni | RPA (UiPath) & Agentic AI Architect | Technical Project Management | UiPath Certified | 150+ Automations/Agents Delivered | Digital Transformation | Gen AI | Hyper Automation
                 </p>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn btn-primary">
@@ -1840,12 +1944,12 @@
                             <div class="stat-label">Automation Projects</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">15+</div>
-                            <div class="stat-label">FTE Saved</div>
+                            <div class="stat-number">160+</div>
+                            <div class="stat-label">FTE Saved Anually</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">$5M+</div>
-                            <div class="stat-label">Cost Savings</div>
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">Million USD Operational Cost Reduction Anually</div>
                         </div>
                     </div>
                 </div>
@@ -1866,7 +1970,7 @@
                     I architect end-to-end automation ecosystems—from traditional RPA to cutting-edge agentic AI powered by LLMs, RAG, and multi-agent frameworks.
                 </p>
                 <p>
-                    Delivered <strong>150+ automation solutions</strong> saving organizations <strong>$5M+ annually</strong> across Finance, Healthcare, Manufacturing, and Product Supply. 
+                    Delivered <strong>150+ automation solutions</strong> saving organizations <strong>$4M+ annually</strong> across Finance, Order Management, Healthcare, Manufacturing, and Product Supply. 
                     My expertise spans UiPath platform architecture, AI integration, strategic consulting, and stakeholder management across Switzerland, Germany, US, UK, and UAE.
                 </p>
                 <p>
@@ -1883,7 +1987,7 @@
                 <div class="highlight-item">
                     <i class="fas fa-certificate"></i>
                     <strong>UiPath Certified Architect</strong>
-                    <small>Developer & AI Associate</small>
+                    <small>Developer, Manager & AI Associate</small>
                 </div>
                 <div class="highlight-item">
                     <i class="fas fa-globe"></i>
@@ -2186,7 +2290,7 @@
                             <div class="metric-label">Use Cases</div>
                         </div>
                         <div class="metric">
-                            <div class="metric-value">$3M+</div>
+                            <div class="metric-value">$4M+</div>
                             <div class="metric-label">Pipeline Value</div>
                         </div>
                     </div>
@@ -2502,7 +2606,7 @@
                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                     <div>
                         <h4>Email</h4>
-                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f6c6061616a6c7b7c6e6766637f6e67786e4f68626e6663216c6062">[email&#160;protected]</a></p>
+                        <p><a href="mailto:connectsahilpahwa@gmail.com" class="__cf_email__" data-cfemail="0f6c6061616a6c7b7c6e6766637f6e67786e4f68626e6663216c6062">connectsahilpahwa@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="contact-item">
