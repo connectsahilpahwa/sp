@@ -1945,11 +1945,11 @@
                         </div>
                         <div class="stat-item">
                             <div class="stat-number">160+</div>
-                            <div class="stat-label">FTE Saved Anually</div>
+                            <div class="stat-label">FTE Saved Annually</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-number">4+</div>
-                            <div class="stat-label">Million USD Operational Cost Reduction Anually</div>
+                            <div class="stat-label">Million USD Operational Cost Reduction Annually</div>
                         </div>
                     </div>
                 </div>
@@ -2807,10 +2807,11 @@
 
         // Download CV functionality
         const downloadBtn = document.getElementById('downloadCV');
-        downloadBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('CV download functionality will be implemented with actual CV file.');
-        });
+        	
+	downloadBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open('image/CV_Sahil_Pahwa_RPA_AgenticAI_12+Yrs.pdf', '_blank');
+    });
 
         // Gallery Filtering with Show More
         const filterBtns = document.querySelectorAll('.filter-btn');
