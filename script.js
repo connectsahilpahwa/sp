@@ -3,6 +3,7 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) document.documentElement.classList.add('js');
 
   /* ---------- Theme ---------- */
   var root = document.documentElement, themeBtn = $('#themeBtn'), themeIcon = $('#themeIcon');
@@ -60,6 +61,23 @@
     Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) spy.observe(el); });
   }
 
+
+  /* ---------- Scroll reveal (staggered) ---------- */
+  if (!reduce && 'IntersectionObserver' in window) {
+    var groups = ['.sec-head', '.prose > *', '.trio > div', '.filters', '.ledger', '.row', '.more-line', '.roles', '.role', '.skill-groups > div', '.edu li', '.badge', '.awards li', '.gallery .shot', '.contact h2', '.contact .lede', '.c-item'];
+    groups.forEach(function (sel) {
+      $$(sel).forEach(function (el, i) {
+        if (el.closest('#home')) return;
+        el.classList.add('rv');
+        el.style.setProperty('--d', Math.min(i % 6, 5) * 0.08 + 's');
+      });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    $$('.rv').forEach(function (el) { io.observe(el); });
+  }
+
   /* ---------- Count-up for headline metrics ---------- */
   var counters = $$('[data-count]');
   if ('IntersectionObserver' in window && !reduce) {
@@ -93,7 +111,7 @@
 
   /* ---------- Gallery ---------- */
   var shots = $$('#gallery-grid .shot'), gf = $$('[data-g]', $('#gallery')).filter(function (b) { return b.classList.contains('chip-btn'); });
-  var moreBtn = $('#moreBtn'), LIMIT = 9, expanded = false, cur = 'all';
+  var moreBtn = $('#moreBtn'), LIMIT = 6, expanded = false, cur = 'all';
   function paintGallery() {
     var match = shots.filter(function (s) { return cur === 'all' || s.dataset.g === cur; });
     shots.forEach(function (s) { s.hidden = true; });
